@@ -9,7 +9,7 @@
     <style>
         :root {
             --primary: #1a3a8f;
-            --secondary: #ffcc00; /* Изменен на желтоватый цвет */
+            --secondary: #ffcc00;
             --accent: #00c9b7;
             --light: #f5f9ff;
             --dark: #0a1948;
@@ -36,7 +36,6 @@
             padding: 0 20px;
         }
         
-        /* Header Styles */
         header {
             background: linear-gradient(135deg, var(--primary), var(--dark));
             color: white;
@@ -125,8 +124,7 @@
         nav a:hover::after {
             width: 100%;
         }
-        
-        /* Hero Section */
+      
         .hero {
             background: linear-gradient(rgba(10, 25, 72, 0.85), rgba(26, 58, 143, 0.9)), url('https://www.amtecgroup.co.uk/wp-content/uploads/2023/06/professional-services-engineering-hardware-it-server-support-2048x1365.jpg');
             background-size: cover;
@@ -155,7 +153,7 @@
         
         .cta-button {
             display: inline-block;
-            background: linear-gradient(to right, var(--secondary), #ffd633); /* Изменен на желтоватый цвет */
+            background: linear-gradient(to right, var(--secondary), #ffd633);
             color: #333;
             padding: 15px 35px;
             font-size: 18px;
@@ -174,7 +172,6 @@
             background: linear-gradient(to right, #ffd633, #ffcc00);
         }
         
-        /* Notice Banner */
         .notice-banner {
             background: linear-gradient(135deg, #fff9e6, #fff3cc);
             border-left: 5px solid var(--secondary);
@@ -199,8 +196,7 @@
             font-size: 20px;
             flex-shrink: 0;
         }
-        
-        /* Section Styles */
+     
         .section-title {
             text-align: center;
             margin-bottom: 50px;
@@ -225,8 +221,7 @@
             background: linear-gradient(to right, var(--secondary), var(--accent));
             border-radius: 2px;
         }
-        
-        /* Resources Section */
+     
         .resources {
             padding: 60px 0;
         }
@@ -237,7 +232,6 @@
             gap: 30px;
         }
         
-        /* Для десктопа: 4 карточки в ряд, Юрайт будет посередине */
         @media (min-width: 1200px) {
             .resources-grid {
                 grid-template-columns: repeat(4, 1fr);
@@ -330,7 +324,6 @@
             background-color: var(--secondary);
         }
         
-        /* Subjects Section */
         .subjects {
             padding: 60px 0;
             background-color: var(--light);
@@ -377,7 +370,6 @@
             margin-bottom: 10px;
         }
         
-        /* Textbook Modal */
         .modal {
             display: none;
             position: fixed;
@@ -478,7 +470,6 @@
             color: var(--secondary);
         }
         
-        /* Quick Links */
         .quick-links {
             padding: 60px 0;
             text-align: center;
@@ -525,7 +516,6 @@
             display: block;
         }
         
-        /* Footer */
         footer {
             background-color: var(--dark);
             color: white;
@@ -616,7 +606,6 @@
             color: #bbb;
         }
         
-        /* Responsive Design */
         @media (max-width: 992px) {
             .hero h2 {
                 font-size: 36px;
@@ -726,7 +715,6 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container">
             <div class="header-content">
@@ -751,7 +739,6 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <h2>Все учебные ресурсы в одном месте!</h2>
@@ -760,14 +747,13 @@
         </div>
     </section>
 
-    <!-- Resources Section -->
     <section id="resources" class="resources">
         <div class="container">
             <div class="section-title">
                 <h2>Образовательные ресурсы</h2>
             </div>
             
-            <!-- Уведомление для студентов -->
+
             <div class="notice-banner">
                 <p><i class="fas fa-info-circle"></i> Уважаемые студенты, узнать актуальное расписание вы можете в Сетевом Городе. Образование!</p>
             </div>
@@ -861,7 +847,6 @@
         </div>
     </section>
 
-    <!-- Textbook Modal -->
     <div id="textbookModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -869,12 +854,10 @@
                 <button class="close-modal">&times;</button>
             </div>
             <div class="textbooks-list" id="textbooksList">
-                <!-- Содержимое будет заполняться через JavaScript -->
             </div>
         </div>
     </div>
 
-    <!-- Quick Links -->
     <section id="links" class="quick-links">
         <div class="container">
             <div class="section-title">
@@ -904,7 +887,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer id="contact">
         <div class="container">
             <div class="footer-content">
@@ -943,7 +925,6 @@
     </footer>
 
     <script>
-        // Данные для учебников
         const textbooksData = {
             'history': [
                 {
@@ -1000,7 +981,6 @@
             ]
         };
 
-        // Плавная прокрутка к якорям
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1018,7 +998,6 @@
             });
         });
 
-        // Открытие модального окна с учебниками
         document.querySelectorAll('.subject-card[data-subject]').forEach(card => {
             card.addEventListener('click', function() {
                 const subject = this.getAttribute('data-subject');
@@ -1029,13 +1008,10 @@
                     const modalTitle = document.getElementById('modalTitle');
                     const textbooksList = document.getElementById('textbooksList');
                     
-                    // Устанавливаем заголовок
                     modalTitle.textContent = this.querySelector('h3').textContent;
                     
-                    // Очищаем список
                     textbooksList.innerHTML = '';
                     
-                    // Добавляем учебники
                     textbooks.forEach(textbook => {
                         const textbookItem = document.createElement('div');
                         textbookItem.className = 'textbook-item';
@@ -1051,20 +1027,17 @@
                         textbooksList.appendChild(textbookItem);
                     });
                     
-                    // Показываем модальное окно
                     modal.style.display = 'block';
                     document.body.style.overflow = 'hidden';
                 }
             });
         });
 
-        // Закрытие модального окна
         document.querySelector('.close-modal').addEventListener('click', function() {
             document.getElementById('textbookModal').style.display = 'none';
             document.body.style.overflow = 'auto';
         });
 
-        // Закрытие модального окна при клике вне его
         window.addEventListener('click', function(e) {
             const modal = document.getElementById('textbookModal');
             if (e.target === modal) {
@@ -1073,7 +1046,6 @@
             }
         });
 
-        // Анимация карточек при прокрутке
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1088,7 +1060,6 @@
             });
         }, observerOptions);
         
-        // Наблюдаем за карточками
         document.querySelectorAll('.resource-card, .subject-card, .link-item').forEach(card => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(20px)';
@@ -1096,7 +1067,6 @@
             observer.observe(card);
         });
 
-        // Автоматическое открытие ссылок для учебников в модальном окне
         document.addEventListener('click', function(e) {
             if (e.target.closest('.textbook-link')) {
                 e.preventDefault();
@@ -1105,7 +1075,6 @@
             }
         });
         
-        // Переупорядочивание карточек для десктопа чтобы Юрайт был посередине
         function reorderCardsForDesktop() {
             const resourcesGrid = document.querySelector('.resources-grid');
             if (!resourcesGrid) return;
@@ -1113,19 +1082,17 @@
             const cards = Array.from(resourcesGrid.querySelectorAll('.resource-card'));
             if (cards.length < 4) return;
             
-            // Порядок для десктопа: сайт, сетевой город, Юрайт, Moodle
             const desktopOrder = [cards[0], cards[1], cards[2], cards[3]];
             
-            // Очищаем и добавляем в правильном порядке
             resourcesGrid.innerHTML = '';
             desktopOrder.forEach(card => {
                 resourcesGrid.appendChild(card);
             });
         }
         
-        // Вызываем функцию при загрузке и изменении размера окна
         window.addEventListener('load', reorderCardsForDesktop);
         window.addEventListener('resize', reorderCardsForDesktop);
     </script>
 </body>
+
 </html>
